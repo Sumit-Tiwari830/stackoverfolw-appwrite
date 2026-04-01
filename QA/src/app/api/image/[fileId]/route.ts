@@ -4,12 +4,13 @@ import { questionAttachmentBucket } from "@/models/name";
 
 export async function GET(
     req: NextRequest,
-    { params }: { params: { fileId: string } }
+    { params }: { params: Promise<{ fileId: string }> }
 ) {
     try {
+        const { fileId } = await params;
         const file = await storage.getFileView(
             questionAttachmentBucket,
-            params.fileId
+            fileId
         );
 
         return new NextResponse(file, {
