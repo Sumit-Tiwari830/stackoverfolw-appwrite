@@ -9,6 +9,7 @@ import { UserPrefs } from "@/store/Auth";
 import Pagination from "@/components/Pagination";
 import Search from "./Search";
 
+export const dynamic = "force-dynamic";
 const Page = async ({
     searchParams,
 }: {
